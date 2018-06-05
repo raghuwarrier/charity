@@ -173,6 +173,7 @@ class PersistentDrawer extends React.Component {
 
     const drawer = (
       <Drawer
+      style={{backgroundColor:'red'}}
         variant="persistent"
         anchor={anchor}
         open={open}
