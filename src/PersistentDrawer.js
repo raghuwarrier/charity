@@ -31,7 +31,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-import './App.css';
+import "./App.css";
 import { withRouter } from "react-router";
 
 const drawerWidth = 240;
@@ -124,8 +124,7 @@ const styles = theme => ({
   bigAvatar: {
     width: 60,
     height: 60
-  },
- 
+  }
 });
 
 class PersistentDrawer extends React.Component {
@@ -173,7 +172,6 @@ class PersistentDrawer extends React.Component {
 
     const drawer = (
       <Drawer
-      style={{backgroundColor:'red'}}
         variant="persistent"
         anchor={anchor}
         open={open}
@@ -181,7 +179,10 @@ class PersistentDrawer extends React.Component {
           paper: classes.drawerPaper
         }}
       >
-        <div className={classes.drawerHeader}>
+        <div
+          className={classes.drawerHeader}
+          style={{ backgroundColor: '#ffb74d' }}
+        >
           <IconButton onClick={this.handleDrawerClose}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
@@ -209,39 +210,62 @@ class PersistentDrawer extends React.Component {
         <div className={classes.root} style={{ height: "900px" }}>
           <div className={classes.appFrame} style={{ height: "900px" }}>
             <AppBar
-              style={{ backgroundColor: "#00695c" }}
+              style={{ backgroundColor: theme.palette.primary.light }}
               className={classNames(classes.appBar, {
                 [classes.appBarShift]: open,
                 [classes[`appBarShift-${anchor}`]]: open
               })}
             >
               <Toolbar disableGutters={!open}>
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  onClick={this.handleDrawerOpen}
-                  className={classNames(
-                    classes.menuButton,
-                    open && classes.hide
-                  )}
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Typography variant="title" color="inherit" noWrap>
-                  Give & Trust
-                </Typography>
                 <div
-                  style={{ flex: 1, flexDirection: "row", display: "block" }}
+                  style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    alignItems:'center',
+                    display: "flex",
+                    width: "100%"
+                  }}
                 >
-                  <div
-                    className="App-Logo"
-                    style={{paddingLeft:'400px' }}
+                <div
+                  style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    alignItems:'center',
+                    display: "flex",
+                    width: "100%"
+                  }}
+                >
+                  <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={this.handleDrawerOpen}
+                    className={classNames(
+                      classes.menuButton,
+                      open && classes.hide
+                    )}
                   >
-                    <img
-                      src="/give-trust-logo.jpg"
-                      className="Avatar"
-                    />
+                    <MenuIcon />
+                  </IconButton>
+                  <img src="/give-trust-logo.jpg" className="Avatar" />
+                  <div style={{ margin: "15px;" }}>&#160;</div>
+                  <Typography variant="title" color="inherit" noWrap>
+                    Give & Trust
+                  </Typography>
                   </div>
+                  <div
+                  style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    alignItems:'center',
+                    justifyContent:'flex-end',
+                    display: "flex",
+                    width: "100%"
+                  }}
+                >
+                <div style={{marginRight:'10px'}}>
+                <Button title="Login" variant="raised" color="secondary" style={{marginRight:'10px;'}}>Login</Button>
+                </div>
+                </div>
                 </div>
               </Toolbar>
             </AppBar>
@@ -268,6 +292,7 @@ class PersistentDrawer extends React.Component {
               <Route path="/about" component={About} />
               <Route path="/hello" component={Hello} />
               <Route path="/books/:id" component={Books} />
+              <Route path="/books/" component={Books} />
             </main>
 
             {after}

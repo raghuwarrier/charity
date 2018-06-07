@@ -30,6 +30,7 @@ export default class Books extends React.Component {
     fetch("http://localhost:3001/nice").then((res) =>  res.json()).then(data => {
       console.log(data)
       this.setState({'name':data.name})
+      this.props.history.push('/about',{'detail':'passeddetail'})
     })
   }
 
@@ -38,6 +39,7 @@ export default class Books extends React.Component {
   handlePost = (event) => {
     let dataToPost = "{'hello':'world'}"
     postData("http://localhost:3001/nice", dataToPost)
+
   }
   render() {
     return (
@@ -60,6 +62,7 @@ export default class Books extends React.Component {
         </Button>
         <h1>{this.props.match ? this.props.match.params.id : 'no id'}</h1>
         <h1>{this.state.name ? this.state.name : ''}</h1>
+        
       </div>
     );
   }
