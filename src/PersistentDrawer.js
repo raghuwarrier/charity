@@ -20,6 +20,7 @@ import { otherMailFolderListItems } from "./tileData";
 import ListItems from "./ListItems";
 import { render } from "react-dom";
 import Home from "./HomeComponent";
+import HomeComponentWrapper from './HomeComponentWrapper';
 import Hello from "./HelloComponent";
 import About from "./AboutComponent";
 import Books from "./BooksComponent";
@@ -207,8 +208,8 @@ class PersistentDrawer extends React.Component {
     }
     return (
       <Router>
-        <div className={classes.root} style={{ height: "900px" }}>
-          <div className={classes.appFrame} style={{ height: "900px" }}>
+        <div className={classes.root}>
+          <div className={classes.appFrame}>
             <AppBar
               style={{ backgroundColor: theme.palette.primary.light }}
               className={classNames(classes.appBar, {
@@ -247,6 +248,7 @@ class PersistentDrawer extends React.Component {
                       <MenuIcon />
                     </IconButton>
                     <img src="/give-trust-logo.jpg" className="Avatar" />
+                    <div style={{marginLeft:'10px;'}}>&#160;</div>
                     <Typography variant="title" color="inherit" noWrap>
                       Give & Trust
                     </Typography>
@@ -287,9 +289,7 @@ class PersistentDrawer extends React.Component {
 
             <main
               style={{
-                backgroundSize: "cover",
-                backgroundImage: "url('/give-trust-sun.jpg')",
-                height: "900px"
+                backgroundColor:'#e0e0e0'
               }}
               className={classNames(
                 classes.content,
@@ -302,7 +302,7 @@ class PersistentDrawer extends React.Component {
             >
               <div className={classes.drawerHeader} />
 
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={HomeComponentWrapper} />
               <Route path="/about" component={About} />
               <Route path="/hello" component={Hello} />
               <Route path="/books/:id" component={Books} />
