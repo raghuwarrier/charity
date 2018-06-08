@@ -15,6 +15,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import HouseIcon from "@material-ui/icons/Home";
 import { otherMailFolderListItems } from "./tileData";
 import ListItems from "./ListItems";
 import { render } from "react-dom";
@@ -41,7 +42,6 @@ const styles = theme => ({
     flexGrow: 1
   },
   appFrame: {
-    height: 500,
     zIndex: 1,
     overflow: "hidden",
     position: "relative",
@@ -181,7 +181,7 @@ class PersistentDrawer extends React.Component {
       >
         <div
           className={classes.drawerHeader}
-          style={{ backgroundColor: '#ffb74d' }}
+          style={{ backgroundColor: "#ffb74d" }}
         >
           <IconButton onClick={this.handleDrawerClose}>
             {theme.direction === "rtl" ? (
@@ -221,51 +221,65 @@ class PersistentDrawer extends React.Component {
                   style={{
                     flex: 1,
                     flexDirection: "row",
-                    alignItems:'center',
+                    alignItems: "center",
                     display: "flex",
                     width: "100%"
                   }}
                 >
-                <div
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems:'center',
-                    display: "flex",
-                    width: "100%"
-                  }}
-                >
-                  <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    onClick={this.handleDrawerOpen}
-                    className={classNames(
-                      classes.menuButton,
-                      open && classes.hide
-                    )}
+                  <div
+                    style={{
+                      flex: 1,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      display: "flex",
+                      width: "100%"
+                    }}
                   >
-                    <MenuIcon />
-                  </IconButton>
-                  <img src="/give-trust-logo.jpg" className="Avatar" />
-                  <div style={{ margin: "15px;" }}>&#160;</div>
-                  <Typography variant="title" color="inherit" noWrap>
-                    Give & Trust
-                  </Typography>
+                    <IconButton
+                      color="inherit"
+                      aria-label="open drawer"
+                      onClick={this.handleDrawerOpen}
+                      className={classNames(
+                        classes.menuButton,
+                        open && classes.hide
+                      )}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                    <img src="/give-trust-logo.jpg" className="Avatar" />
+                    <Typography variant="title" color="inherit" noWrap>
+                      Give & Trust
+                    </Typography>
+                  </div>
+                  <div style={{flex:1, display:'flex', flexDirection:'row',alignItems:'center'}}>
+                    <IconButton style={{ paddingLeft: "20px;" }}>
+                      <HouseIcon style={{ color: "white" }} />
+                    </IconButton>
+                    <Typography variant="subheading" color="inherit" noWrap>
+                      Home
+                    </Typography>
                   </div>
                   <div
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems:'center',
-                    justifyContent:'flex-end',
-                    display: "flex",
-                    width: "100%"
-                  }}
-                >
-                <div style={{marginRight:'10px'}}>
-                <Button title="Login" variant="raised" color="secondary" style={{marginRight:'10px;'}}>Login</Button>
-                </div>
-                </div>
+                    style={{
+                      flex: 1,
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "flex-end",
+                      display: "flex",
+                      width: "100%"
+                    }}
+                  >
+                    <div style={{ marginRight: "10px" }}>
+                      <Button
+                        title="Login"
+                        variant="raised"
+                        color="secondary"
+                        style={{ marginRight: "10px;" }}
+                      >
+                        Login
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               </Toolbar>
             </AppBar>
